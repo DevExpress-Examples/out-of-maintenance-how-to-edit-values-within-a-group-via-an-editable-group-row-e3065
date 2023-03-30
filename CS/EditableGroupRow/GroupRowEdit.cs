@@ -28,6 +28,8 @@ namespace EditableGroupRow
         {
             if (View.IsGroupRow(e.HitInfo.RowHandle))
             {
+                if (e.Menu == null)
+                    e.Menu = new DevExpress.XtraGrid.Menu.GridViewMenu(View);
                 e.Menu.Items.Clear();
                 DXMenuItem item = new DXMenuItem("Edit");
                 item.Click += new EventHandler(item_Click);

@@ -24,6 +24,7 @@ Namespace EditableGroupRow
 
 		Private Sub View_PopupMenuShowing(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs)
 			If View.IsGroupRow(e.HitInfo.RowHandle) Then
+				If e.Menu Is Nothing Then e.Menu = New DevExpress.XtraGrid.Menu.GridViewMenu(View)
 				e.Menu.Items.Clear()
 				Dim item As New DXMenuItem("Edit")
 				AddHandler item.Click, AddressOf item_Click
